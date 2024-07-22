@@ -1,0 +1,7 @@
+﻿[
+  {
+    "name": "WeatherClient",
+    "namespace": "WeatherService.Client",
+    "version": "v1"
+  }
+]
