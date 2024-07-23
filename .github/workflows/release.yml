@@ -21,6 +21,9 @@ jobs:
 
     - name: Restore dependencies
       run: dotnet restore "1. Swagger/WeatherService/WeatherService.Client/WeatherService.Client.csproj"
-      
+
+    - name: Build Swagger
+      run: dotnet build "1. Swagger/WeatherService/WeatherService.Client/WeatherService.Client.csproj" --configuration Release
+
     - name: Pack Swagger
       run: dotnet pack "1. Swagger/WeatherService/WeatherService.Client/WeatherService.Client.csproj" --configuration Release --output ${{ env.NUGET_DIRECTORY }}
