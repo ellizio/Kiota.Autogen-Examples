@@ -19,11 +19,5 @@ jobs:
       with:
         dotnet-version: 8.0.x
 
-    - name: Restore dependencies
-      run: dotnet restore "1. Swagger/WeatherService/WeatherService.Client/WeatherService.Client.csproj"
-
-    - name: Build Api
-      run: dotnet build "1. Swagger/WeatherService/WeatherService.Api/WeatherService.Api.csproj" --configuration Release
-
     - name: Pack Swagger
-      run: dotnet pack "1. Swagger/WeatherService/WeatherService.Client/WeatherService.Client.csproj" --configuration Release --output ${{ env.NUGET_DIRECTORY }}
+      run: dotnet pack "1. Swagger/WeatherService/WeatherService.Client/WeatherService.Client.csproj" --configuration Release --output ${{ env.NUGET_DIRECTORY }} /p:GeneratePackageOnBuild=false
