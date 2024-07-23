@@ -17,7 +17,7 @@
     </ItemGroup>
 
     <ItemGroup>
-      <ProjectReference Include="..\WeatherService.Api\WeatherService.Api.csproj" />
+      <ProjectReference Include="..\WeatherService.Api\WeatherService.Api.csproj" ExcludeAssets="true" />
     </ItemGroup>
 
 </Project>
