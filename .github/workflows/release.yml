@@ -19,5 +19,5 @@ jobs:
       with:
         dotnet-version: 8.0.x
 
-    - name: Pack Swagger
-      run: dotnet pack "1. Swagger/WeatherService/WeatherService.Client/WeatherService.Client.csproj" --configuration Release --output ${{ env.NUGET_DIRECTORY }} /p:GeneratePackageOnBuild=false
+    - name: Pack Client
+      run: dotnet pack --configuration Release --output ${{ env.NUGET_DIRECTORY }} /p:GeneratePackageOnBuild=false
