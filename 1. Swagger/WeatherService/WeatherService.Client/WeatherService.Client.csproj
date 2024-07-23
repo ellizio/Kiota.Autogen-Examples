@@ -7,7 +7,7 @@
     </PropertyGroup>
 
     <ItemGroup>
-        <PackageReference Include="Kiota.Autogen.Swagger" Version="1.16.0" PrivateAssets="all" />
+        <PackageReference Include="Kiota.Autogen.Swagger" Version="1.16.1-pre.1" PrivateAssets="all" />
         <PackageReference Include="Microsoft.Kiota.Abstractions" Version="1.9.10" />
         <PackageReference Include="Microsoft.Kiota.Http.HttpClientLibrary" Version="1.9.10" />
         <PackageReference Include="Microsoft.Kiota.Serialization.Form" Version="1.9.10" />
