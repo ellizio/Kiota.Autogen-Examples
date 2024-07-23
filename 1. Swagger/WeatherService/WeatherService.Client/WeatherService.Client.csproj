@@ -7,7 +7,7 @@
 
         <PackageId>WeatherService.Client</PackageId>
         <Title>WeatherService.Client</Title>
-        <Version>1.0.0</Version>
+        <Version>1.0.1</Version>
         <Authors>ellizio</Authors>
         <Description>API client for Weather Service</Description>
         <PackageProjectUrl>https://github.com/ellizio/Kiota.Autogen-Examples</PackageProjectUrl>
