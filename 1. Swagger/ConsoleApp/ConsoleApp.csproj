@@ -8,7 +8,7 @@
     </PropertyGroup>
 
     <ItemGroup>
-      <PackageReference Include="Weatherservice.Client" Version="1.0.0" />
+      <PackageReference Include="WeatherService.Client" Version="1.0.0" />
     </ItemGroup>
 
 </Project>
