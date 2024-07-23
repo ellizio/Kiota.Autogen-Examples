@@ -19,8 +19,14 @@ jobs:
       with:
         dotnet-version: 8.0.x
 
-    - name: Restore dependencies
-      run: dotnet restore "1. Swagger/WeatherService/WeatherService.Client/WeatherService.Client.csproj"
-      
-    - name: Pack Swagger
+    - name: Build References
+      run: dotnet build "1. Swagger/WeatherService/WeatherService.Api/WeatherService.Api.csproj" --configuration Release
+
+    - name: Pack Client
       run: dotnet pack "1. Swagger/WeatherService/WeatherService.Client/WeatherService.Client.csproj" --configuration Release --output ${{ env.NUGET_DIRECTORY }}
+
+    - name: Publish
+      run: |
+        for file in $(find "${{ env.NUGET_DIRECTORY }}" -type f -name "*.nupkg"); do
+          dotnet nuget push "$file" --api-key "${{ secrets.GH_NUGET }}" --source https://nuget.pkg.github.com/ellizio/index.json --skip-duplicate
+        done
