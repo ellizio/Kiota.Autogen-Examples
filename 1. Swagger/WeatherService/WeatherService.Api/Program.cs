@@ -23,7 +23,7 @@ app.MapGet("/forecast", ([FromQuery] int month, [FromQuery] int day) =>
         if (month < 1 || month > 12 || day < 1)
             return Results.ValidationProblem(new Dictionary<string, string[]>());
         
-        if (DateTime.DaysInMonth(DateTime.UtcNow.Year, month) > day)
+        if (DateTime.DaysInMonth(DateTime.UtcNow.Year, month) < day)
             return Results.ValidationProblem(new Dictionary<string, string[]>());
 
         var random = new Random();
@@ -44,7 +44,7 @@ app.MapPost("/forecast", ([FromBody] NewForecast forecast) =>
         if (month < 1 || month > 12 || day < 1)
             return Results.ValidationProblem(new Dictionary<string, string[]>());
         
-        if (DateTime.DaysInMonth(DateTime.UtcNow.Year, month) > day)
+        if (DateTime.DaysInMonth(DateTime.UtcNow.Year, month) < day)
             return Results.ValidationProblem(new Dictionary<string, string[]>());
 
         return Results.Ok(Guid.NewGuid());
