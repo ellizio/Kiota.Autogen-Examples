@@ -1,0 +1,26 @@
+name: release
+
+on:
+  workflow_dispatch:
+    
+env:
+  NUGET_DIRECTORY: ${{ github.workspace }}/nuget
+
+jobs:
+  release:
+    runs-on: ubuntu-latest
+
+    steps:
+    - name: Checkout
+      uses: actions/checkout@v4
+
+    - name: Setup .NET
+      uses: actions/setup-dotnet@v4
+      with:
+        dotnet-version: 8.0.x
+
+    - name: Restore dependencies
+      run: dotnet restore "1. Swagger/WeatherService/WeatherService.Client/WeatherService.Client.csproj"
+      
+    - name: Pack Swagger
+      run: dotnet pack "1. Swagger/WeatherService/WeatherService.Client/WeatherService.Client.csproj" --configuration Release --output ${{ env.NUGET_DIRECTORY }}
