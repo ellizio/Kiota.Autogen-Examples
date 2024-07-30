@@ -33,6 +33,25 @@ try
 catch (ScoreService.Client.Models.ProblemDetails ex) when (ex.Status == 404)
 {
     Console.WriteLine($"Hockey: {ex.Detail}");
-    throw;
+}
+Console.WriteLine();
+
+
+using var customAdapter = new HttpClientRequestAdapter(provider, new ScoreParseNodeFactory(), new ScoreSerializationWriterFactory(), httpClient: httpClient);
+var customClient = new ScoreClient(customAdapter);
+try
+{
+    var basketballScores = await customClient.Scores.GetAsync(r => r.QueryParameters.TypeAsGameType = GameType.Basketball);
+    Console.WriteLine("Basketball:");
+    foreach (var score in basketballScores)
+        Console.WriteLine($"{score.GameName}: {score.Home} - {score.Away}");
+}
+catch (ScoreService.Client.Models.ProblemDetails ex) when (ex.Status == 404)
+{
+    Console.WriteLine($"Basketball: {ex.Detail}");
+}
+catch (Exception ex)
+{
+    Console.WriteLine($"Client exception: {ex.Message}");
 }
 
