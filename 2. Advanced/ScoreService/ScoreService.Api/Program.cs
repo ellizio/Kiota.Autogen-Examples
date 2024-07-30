@@ -40,7 +40,7 @@ app.MapGet("/scores", ([FromQuery] GameType type) =>
                 break;
         }
 
-        return scores?.Length != 0 ? Results.Ok(scores) : Results.NotFound();
+        return scores?.Length != 0 ? Results.Ok(scores) : Results.Problem(statusCode: StatusCodes.Status404NotFound, detail: "Scores not found");
     })
     .WithName("GetScores")
     .Produces<Score[]>()
