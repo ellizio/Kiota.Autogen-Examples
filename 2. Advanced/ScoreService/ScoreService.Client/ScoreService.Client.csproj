@@ -5,11 +5,11 @@
         <ImplicitUsings>enable</ImplicitUsings>
         <Nullable>enable</Nullable>
 
-        <PackageId>WeatherService.Client</PackageId>
-        <Title>WeatherService.Client</Title>
+        <PackageId>ScoreService.Client</PackageId>
+        <Title>ScoreService.Client</Title>
         <Version>1.16.0</Version>
         <Authors>ellizio</Authors>
-        <Description>API client for Weather Service</Description>
+        <Description>API client for Score Service</Description>
         <PackageProjectUrl>https://github.com/ellizio/Kiota.Autogen-Examples</PackageProjectUrl>
         <RepositoryUrl>https://github.com/ellizio/Kiota.Autogen-Examples</RepositoryUrl>
         <PackageLicenseExpression>MIT</PackageLicenseExpression>
@@ -26,7 +26,7 @@
     </ItemGroup>
 
     <ItemGroup>
-      <ProjectReference Include="..\WeatherService.Api\WeatherService.Api.csproj" ExcludeAssets="all" />
+      <ProjectReference Include="..\ScoreService.Api\ScoreService.Api.csproj" ExcludeAssets="all" />
     </ItemGroup>
 
 </Project>

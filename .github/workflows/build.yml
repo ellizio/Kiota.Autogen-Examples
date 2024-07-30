@@ -18,8 +18,12 @@ jobs:
       with:
         dotnet-version: 8.0.x
 
-    - name: Build References
+    - name: Build Swagger
       run: dotnet build "1. Swagger/WeatherService/WeatherService.Api/WeatherService.Api.csproj" --configuration Release
+    - name: Build Advanced
+      run: dotnet build "2. Advanced/ScoreService/ScoreService.Api/ScoreService.Api.csproj" --configuration Release
 
-    - name: Pack Client
+    - name: Pack Swagger
       run: dotnet pack "1. Swagger/WeatherService/WeatherService.Client/WeatherService.Client.csproj" --configuration Release
+    - name: Pack Advanced
+      run: dotnet pack "2. Advanced/ScoreService/ScoreService.Client/ScoreService.Client.csproj" --configuration Release

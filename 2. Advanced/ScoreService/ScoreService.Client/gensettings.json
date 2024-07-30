@@ -1,0 +1,7 @@
+﻿[
+  {
+    "name": "ScoreClient",
+    "namespace": "ScoreService.Client",
+    "version": "v1"
+  }
+]
